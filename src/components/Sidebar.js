@@ -17,7 +17,7 @@ const Sidebar = () => {
       <img
         src={logo}
         alt="Logo"
-        className="w-20 h-20 cursor-pointer p-2 fixed top-5 left-5 z-50"
+        className="w-16 h-16 sm:w-20 sm:h-20 cursor-pointer p-2 fixed top-5 left-5 z-50"
         onClick={toggleSidebar}
       />
 
@@ -48,11 +48,10 @@ const Sidebar = () => {
                 {[
                   { name: "Home", path: "/" },
                   { name: "Dashboard", path: "/dashboard" },
-                  { name: "Offers", path: "/offers" },
-                  { name: "Billing", path: "/billing" },
+                  { name: "Offers & Billing", path: "/offersbillings" },
+                 
                   { name: "Analytics", path: "/analytics" },
-                  { name: "Venue", path: "/venue" },
-                  { name: "Engagement", path: "/engagement" },
+                  { name: "Venue & Engagement", path: "/venueengagement" },
                 ].map(({ name, path }) => (
                   <li key={name}>
                     <Link

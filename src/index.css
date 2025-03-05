@@ -6,7 +6,7 @@
 
 /* Set base styles */
 body {
-  @apply bg-[#081104] text-white;
+  @apply bg-[#081104] text-[#FDF0B1];
   font-family: "Playfair Display", serif;
 }
 

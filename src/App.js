@@ -3,11 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
-import Offers from "./pages/Offers";
-import Billing from "./pages/Billing";
+import OffersBillings from "./pages/OffersBillings";
 import Analytics from "./pages/Analytics";
-import Venue from "./pages/Venue";
-import Engagement from "./pages/Engagement";
+import VenueEngagement from "./pages/VenueEngagement";
 import LoadingScreen from "./components/LoadingScreen"; 
 
 export default function App() {
@@ -28,19 +26,15 @@ export default function App() {
         <LoadingScreen />
       ) : (
         <div className="min-h-screen flex">
-          {/* Sidebar with Logo */}
           <Sidebar />
 
-          {/* Page Content */}
           <div className="flex-1 p-5">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/offers" element={<Offers />} />
-              <Route path="/billing" element={<Billing />} />
+              <Route path="/offersbillings" element={<OffersBillings />} />
               <Route path="/analytics" element={<Analytics />} />
-              <Route path="/venue" element={<Venue />} />
-              <Route path="/engagement" element={<Engagement />} />
+              <Route path="/venueengagement" element={<VenueEngagement />} />
             </Routes>
           </div>
         </div>

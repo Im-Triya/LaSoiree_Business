@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Billing() {
+function VenueEngagement() {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function Billing() {
   )
 }
 
-export default Billing
+export default VenueEngagement
