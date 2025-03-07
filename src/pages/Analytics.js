@@ -124,12 +124,36 @@ const Analytics = () => {
     }, 3000);
   
     return () => clearInterval(carouselInterval);
-  }, [topSellingItems.length]); 
+  }, [topSellingItems.length]);
+
+  // Add scroll event listener for fade-in animation
+  useEffect(() => {
+    const handleScroll = () => {
+      const elements = document.querySelectorAll(".fade-element");
+      elements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const isVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
+
+        if (isVisible) {
+          el.style.transition = "opacity 0.8s ease-in-out";
+          el.style.opacity = 1;
+        } else {
+          el.style.transition = "opacity 0.8s ease-in-out";
+          el.style.opacity = 0;
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial check
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="min-h-screen p-4 md:p-6 md:m-10">
       {/* Heading */}
       <motion.h1
-        className="text-2xl text-[#09D133] md:text-5xl font-bold text-center mb-8 mt-10"
+        className="text-2xl text-[#09D133] md:text-5xl font-bold text-center mb-8 mt-10 fade-element"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -153,7 +177,7 @@ const Analytics = () => {
           ))}
       </motion.h1>
 
-      <p className="text-center text-lg text-[#FBFDFC] mt-2">
+      <p className="text-center text-lg text-[#FBFDFC] mt-2 fade-element">
         Track top-selling items, revenue trends, and customer behavior.
       </p>
 
@@ -161,7 +185,7 @@ const Analytics = () => {
       <div className="flex flex-col md:flex-row gap-6 justify-center items-center mt-8">
         {/* Sales Trends Chart */}
         <motion.div
-          className="bg-[#0F1A09] p-4 md:p-6 rounded-lg w-full md:w-1/2"
+          className="bg-[#0F1A09] p-4 md:p-6 rounded-lg w-full md:w-1/2 fade-element"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
@@ -177,7 +201,7 @@ const Analytics = () => {
 
         {/* Vertical Scrolling Carousel */}
         <motion.div
-          className="bg-[#0F1A09] p-4 md:p-6 rounded-lg w-full md:w-1/2 flex flex-col md:flex-row"
+          className="bg-[#0F1A09] p-4 md:p-6 rounded-lg w-full md:w-1/2 flex flex-col md:flex-row fade-element"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
@@ -211,7 +235,7 @@ const Analytics = () => {
 
       {/* Customer Behavior Section */}
       <motion.div
-        className="bg-[#0F1A09] p-4 md:p-6 rounded-lg mt-8 flex flex-col md:flex-row items-center justify-between gap-6"
+        className="bg-[#0F1A09] p-4 md:p-6 rounded-lg mt-8 flex flex-col md:flex-row items-center justify-between gap-6 fade-element"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}

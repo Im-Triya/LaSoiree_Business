@@ -36,10 +36,10 @@ const OffersBillings = () => {
         const isVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
 
         if (isVisible) {
-          el.style.transition = "opacity 0.8s ease-in-out";
+          el.style.transition = "opacity 0.5s ease-in-out";
           el.style.opacity = 1;
         } else {
-          el.style.transition = "opacity 0.8s ease-in-out";
+          el.style.transition = "opacity 0.5s ease-in-out";
           el.style.opacity = 0;
         }
       });

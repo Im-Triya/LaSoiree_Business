@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import mobileImage from "../assets/venueengagement/mobile-1.png"; // Replace with your image paths
 import Lottie from "lottie-react"; // Import Lottie
@@ -8,11 +8,34 @@ import notificationAnimation from "../assets/venueengagement/notification.json";
 import Footer from "../components/Footer"; // Import your Footer component
 
 function VenueEngagement() {
+  // Add scroll event listener for fade-in animation
+  useEffect(() => {
+    const handleScroll = () => {
+      const elements = document.querySelectorAll(".fade-element");
+      elements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const isVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
+
+        if (isVisible) {
+          el.style.transition = "opacity 0.5s ease-in-out";
+          el.style.opacity = 1;
+        } else {
+          el.style.transition = "opacity 0.5s ease-in-out";
+          el.style.opacity = 0;
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial check
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="min-h-screen p-4 md:p-6 md:m-10">
       {/* Header */}
       <motion.h1
-        className="text-2xl text-[#09D133] md:text-5xl font-bold text-center mb-8 mt-10"
+        className="text-2xl text-[#09D133] md:text-5xl font-bold text-center mb-8 mt-10 fade-element"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -36,13 +59,13 @@ function VenueEngagement() {
           ))}
       </motion.h1>
 
-      <p className="text-center text-lg text-[#FBFDFC] mt-2">
+      <p className="text-center text-lg text-[#FBFDFC] mt-2 fade-element">
         Manage venue settings, track staff, and engage with customers.
       </p>
 
       {/* Section 1: Real-Time Customer Chat */}
       <motion.div
-        className="bg-[#0F1A09] flex flex-col md:flex-row items-center gap-6 mt-8 p-6 rounded-xl" // Curved edges
+        className="bg-[#0F1A09] flex flex-col md:flex-row items-center gap-6 mt-8 p-6 rounded-xl fade-element" // Curved edges
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
@@ -73,7 +96,7 @@ function VenueEngagement() {
 
       {/* Section 2: Staff Attendance */}
       <motion.div
-        className="#017F1C flex flex-col md:flex-row items-center gap-6 mt-8 p-6 rounded-xl" // Curved edges
+        className="#017F1C flex flex-col md:flex-row items-center gap-6 mt-8 p-6 rounded-xl fade-element" // Curved edges
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
@@ -104,7 +127,7 @@ function VenueEngagement() {
 
       {/* Section 3: Venue Photo & Menu Management */}
       <motion.div
-        className="bg-[#0F1A09] flex flex-col md:flex-row items-center gap-6 mt-8 p-6 rounded-xl" // Curved edges
+        className="bg-[#0F1A09] flex flex-col md:flex-row items-center gap-6 mt-8 p-6 rounded-xl fade-element" // Curved edges
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
@@ -142,7 +165,7 @@ function VenueEngagement() {
 
       {/* Section 4: Table Service Requests */}
       <motion.div
-        className="#017F1C flex flex-col md:flex-row items-center gap-6 mt-8 p-6 rounded-xl" // Curved edges
+        className="#017F1C flex flex-col md:flex-row items-center gap-6 mt-8 p-6 rounded-xl fade-element" // Curved edges
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}

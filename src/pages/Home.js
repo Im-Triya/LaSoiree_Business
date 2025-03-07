@@ -7,7 +7,7 @@ import Gallery from "../components/Gallery";
 import Footer from "../components/Footer";
 
 export default function Home() {
-  const text1 = "LaSoirée Partners Application is your all-in-one powerhouse for managing and elevating your business effortlessly. Designed to simplify everything from tracking revenue and inventory to engaging directly with your customers, this app puts you in control. Monitor multiple branches seamlessly, uncover top-selling items, and craft personalized offers to keep your audience hooked. With real-time insights, sleek analytics, and a user-friendly interface, LaSoirée Partners doesn’t just help you manage your business—it helps you scale it with style. Get ready to transform the way you operate, one tap at a time!";
+  const text1 = "LaSoirée Partners Application is your all-in-one powerhouse for managing and elevating your business effortlessly. Designed to simplify everything from tracking revenue and inventory to engaging directly with your customers, this app puts you in control. Monitor multiple branches seamlessly, uncover top-selling items, and craft personalized offers to keep your audience hooked. With real-time insights, sleek analytics, and a user-friendly interface, LaSoirée Partners doesn’t just help you manage your business—it helps you scale it with style. Get ready to transform the way you operate, one tap at a time!";
 
   // Function to animate words separately (delayed after images)
   const renderAnimatedText = (text, delayStart = 0) => {
@@ -29,7 +29,9 @@ export default function Home() {
       <HeroSection />
 
       {/* Two-Column Layout for Desktop, Stacked for Mobile */}
-      <div className="relative min-h-screen flex flex-col md:grid md:grid-cols-2 gap-4 md:gap-8 w-full items-center px-4 sm:px-8 md:px-16"
+      <div
+        id="two-column-section" // Add id for smooth scrolling
+        className="relative min-h-screen flex flex-col md:grid md:grid-cols-2 gap-4 md:gap-8 w-full items-center px-4 sm:px-8 md:px-16"
         style={{ perspective: "1000px" }}
       >
         {/* Mobile: Show Images First, Desktop: Side by Side */}
