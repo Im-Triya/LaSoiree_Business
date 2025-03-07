@@ -60,7 +60,7 @@ const OffersBillings = () => {
   }, [headingControls]);
 
   return (
-    <div className="min-h-screen text-[#FDF0B1] p-4 md:p-12 m-8">
+    <div className="min-h-screen text-[#FDF0B1] p-4 md:p-12">
       {/* Animated Heading */}
       <motion.h1
         className="text-2xl text-[#09D133] md:text-5xl font-bold text-center mb-8 mt-10 fade-element"
