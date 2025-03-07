@@ -98,7 +98,7 @@ const OffersBillings = () => {
       </motion.p>
 
       {/* Active Offers & Promotions */}
-      <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10 fade-element">
+      <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10 ">
         <div className="order-1 col-span-1 flex items-center justify-center text-center">
           <div className="text-left">
             <h2 className="text-[#FBFDFC] text-2xl font-bold mb-2">
@@ -275,7 +275,6 @@ const OffersBillings = () => {
                 "View and track all payments",
                 "Sort by payment type, date, or amount",
                 "Payment Reconciliation",
-                "Manage refunds and split bills easily",
               ].map((item, index) => (
                 <motion.li
                   key={index}

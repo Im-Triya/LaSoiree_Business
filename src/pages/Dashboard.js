@@ -65,7 +65,7 @@ function Dashboard() {
   useEffect(() => {
     async function animateHeading() {
       await headingControls.start({ opacity: 1 });
-      await new Promise((resolve) => setTimeout(resolve, 1500)); // Ensure heading animation completes
+      await new Promise((resolve) => setTimeout(resolve, 1500)); 
       contentControls.start({ opacity: 1, y: 0 });
     }
     animateHeading();

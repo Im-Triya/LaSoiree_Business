@@ -7,8 +7,7 @@ import Gallery from "../components/Gallery";
 import Footer from "../components/Footer";
 
 export default function Home() {
-  const text1 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit Nullam vehicula, lectus a faucibus ullamcorper, odio justo fermentum erat, ac scelerisque lectus mi eu nisl Nullam vehicula, lectus a faucibus ullamcorper, odio justo fermentum erat";
-  const text2 = "Nullam vehicula, lectus a faucibus ullamcorper, odio justo fermentum erat, ac scelerisque lectus mi eu nisl Nullam vehicula, lectus a faucibus ullamcorper, odio justo fermentum erat, ac scelerisque lectus mi eu nisl.";
+  const text1 = "LaSoirée Partners Application is your all-in-one powerhouse for managing and elevating your business effortlessly. Designed to simplify everything from tracking revenue and inventory to engaging directly with your customers, this app puts you in control. Monitor multiple branches seamlessly, uncover top-selling items, and craft personalized offers to keep your audience hooked. With real-time insights, sleek analytics, and a user-friendly interface, LaSoirée Partners doesn’t just help you manage your business—it helps you scale it with style. Get ready to transform the way you operate, one tap at a time!";
 
   // Function to animate words separately (delayed after images)
   const renderAnimatedText = (text, delayStart = 0) => {
@@ -69,8 +68,7 @@ export default function Home() {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.8 }}
         >
-          <p>{renderAnimatedText(text1, 1.8)}</p>
-          <p className="mt-4">{renderAnimatedText(text2, 2.3)}</p>
+          <p>{renderAnimatedText(text1, 0.5)}</p>
         </motion.div>
       </div>
 
