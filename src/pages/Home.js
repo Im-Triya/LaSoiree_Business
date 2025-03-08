@@ -7,22 +7,7 @@ import Gallery from "../components/Gallery";
 import Footer from "../components/Footer";
 
 export default function Home() {
-  const text1 = "LaSoirée Partners Application is your all-in-one powerhouse for managing and elevating your business effortlessly. Designed to simplify everything from tracking revenue and inventory to engaging directly with your customers, this app puts you in control. Monitor multiple branches seamlessly, uncover top-selling items, and craft personalized offers to keep your audience hooked. With real-time insights, sleek analytics, and a user-friendly interface, LaSoirée Partners doesn’t just help you manage your business—it helps you scale it with style. Get ready to transform the way you operate, one tap at a time!";
-
-  // Function to animate words separately (delayed after images)
-  const renderAnimatedText = (text, delayStart = 0) => {
-    return text.split(" ").map((word, index) => (
-      <motion.span
-        key={index}
-        initial={{ x: -50, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.3, ease: "easeOut", delay: delayStart + index * 0.1 }}
-        className="inline-block mr-1"
-      >
-        {word}
-      </motion.span>
-    ));
-  };
+  const text1 = "LaSoirée Partners Application is your all-in-one powerhouse for managing and elevating your business effortlessly. Designed to simplify everything from tracking revenue and inventory to engaging directly with your customers, this app puts you in control. Monitor multiple branches seamlessly, uncover top-selling items, and craft personalized offers to keep your audience hooked. With real-time insights, sleek analytics, and a user-friendly interface, LaSoirée Partners doesn’t just help you manage your business—it helps you scale it with style. Get ready to transform the way you operate, one tap at a time!"; 
 
   return (
     <div>
@@ -65,12 +50,12 @@ export default function Home() {
 
         {/* Mobile: Show Text After Images, Desktop: Side by Side */}
         <motion.div 
-          className="w-full text-[#FDF0B1] text-lg md:text-2xl font-medium leading-relaxed md:order-1"
+          className="w-full text-[#FDF0B1] text-lg md:text-2xl font-medium leading-relaxed md:order-1 pb-10"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.8 }}
         >
-          <p>{renderAnimatedText(text1, 0.5)}</p>
+          <p>{text1}</p>
         </motion.div>
       </div>
 

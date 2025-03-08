@@ -2,12 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaBars } from "react-icons/fa"; // Hamburger icon from react-icons
-import logo from "../assets/logo/logo.png";
+import logo from "../assets/logo/logo.png"; // Import the logo
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [showLogo, setShowLogo] = useState(true); // Toggle between logo and hamburger
 
   // Toggle Sidebar
   const toggleSidebar = () => {
@@ -30,48 +29,22 @@ const Sidebar = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Rotate between logo and hamburger
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setShowLogo((prev) => !prev); // Toggle between logo and hamburger
-    }, 3000); // Change every 3 seconds
-
-    return () => clearInterval(interval);
-  }, []);
+  // Only render the Sidebar in mobile view
+  if (!isMobile) return null;
 
   return (
     <div className="relative z-50">
-      {/* Logo and Hamburger Button */}
+      {/* Logo on the top-left corner of the page */}
+      <div className="fixed top-5 left-5 z-50">
+        <img src={logo} alt="Logo" className="w-12 h-12" />
+      </div>
+
+      {/* Hamburger Button on the top-right corner */}
       <motion.div
-        className="w-16 h-16 sm:w-20 sm:h-20 cursor-pointer p-2 fixed top-5 right-5 md:left-5 lg:left-5 xl:left-5 z-50"
+        className="w-16 h-16 cursor-pointer p-2 fixed top-5 right-5 z-50"
         onClick={toggleSidebar}
-        style={{ perspective: 1000 }} // Add perspective for 3D rotation
       >
-        <AnimatePresence mode="wait">
-          {showLogo ? (
-            <motion.img
-              key="logo"
-              src={logo}
-              alt="Logo"
-              className="w-full h-full"
-              initial={{ opacity: 0, rotateY: 90 }}
-              animate={{ opacity: 1, rotateY: 0 }}
-              exit={{ opacity: 0, rotateY: -90 }}
-              transition={{ duration: 0.5 }}
-            />
-          ) : (
-            <motion.div
-              key="hamburger"
-              className="w-full h-full flex items-center justify-center"
-              initial={{ opacity: 0, rotateY: 90 }}
-              animate={{ opacity: 1, rotateY: 0 }}
-              exit={{ opacity: 0, rotateY: -90 }}
-              transition={{ duration: 0.5 }}
-            >
-              <FaBars className="text-white text-3xl" /> {/* Hamburger icon */}
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <FaBars className="text-white text-3xl" /> {/* Hamburger icon */}
       </motion.div>
 
       {/* Sidebar & Backdrop */}
@@ -91,14 +64,13 @@ const Sidebar = () => {
 
             {/* Sidebar Panel */}
             <motion.div
-              initial={{ x: isMobile ? "100%" : "-100%" }} // Start off-screen based on screen size
+              initial={{ x: "100%" }} // Start off-screen
               animate={{ x: 0 }} // Slide into view
-              exit={{ x: isMobile ? "100%" : "-100%" }} // Slide out based on screen size
+              exit={{ x: "100%" }} // Slide out
               transition={{ duration: 0.3 }}
-              className={`absolute top-0 ${
-                isMobile ? "right-0" : "left-0"
-              } h-full w-64 bg-[#082002] text-white shadow-lg p-5 flex flex-col justify-center`}
+              className="absolute top-0 right-0 h-full w-64 bg-[#082002] text-white shadow-lg p-5 flex flex-col justify-center items-start"
             >
+              {/* Navigation Links */}
               <ul className="space-y-4 text-lg text-left">
                 {[
                   { name: "Home", path: "/" },
@@ -106,6 +78,7 @@ const Sidebar = () => {
                   { name: "Offers & Billing", path: "/offersbillings" },
                   { name: "Analytics", path: "/analytics" },
                   { name: "Venue & Engagement", path: "/venueengagement" },
+                  { name: "Demo", path: "/demo" },
                 ].map(({ name, path }) => (
                   <li key={name}>
                     <Link

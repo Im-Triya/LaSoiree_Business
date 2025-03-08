@@ -34,7 +34,7 @@ export default function Gallery() {
   };
 
   return (
-    <div className="relative w-full overflow-hidden py-10 bg-black">
+    <div className="relative w-full overflow-hidden py-10 bg-[#082002]">
       <h2 className="text-center text-3xl sm:text-4xl md:text-5xl font-bold text-[#FDF0B1] mb-6">
         Stunning Visuals
       </h2>
