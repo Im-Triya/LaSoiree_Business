@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
-import { FaCreditCard, FaMoneyBillAlt, FaMobileAlt } from "react-icons/fa";
-import { SiVisa } from "react-icons/si";
+// import { FaCreditCard, FaMoneyBillAlt, FaMobileAlt } from "react-icons/fa";
+// import { SiVisa } from "react-icons/si";
 
 import Footer from "../components/Footer";
 import offer1 from "../assets/offersbillings/offer1.jpeg";
@@ -28,28 +28,42 @@ const avatars = [
 const OffersBillings = () => {
   const headingControls = useAnimation();
 
+  // Optimized scroll event handler
   useEffect(() => {
-    const handleScroll = () => {
-      const elements = document.querySelectorAll(".fade-element");
-      elements.forEach((el) => {
-        const rect = el.getBoundingClientRect();
-        const isVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
+    let animationFrameId = null;
 
-        if (isVisible) {
-          el.style.transition = "opacity 0.5s ease-in-out";
-          el.style.opacity = 1;
-        } else {
-          el.style.transition = "opacity 0.5s ease-in-out";
-          el.style.opacity = 0;
-        }
+    const handleScroll = () => {
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId); // Cancel previous frame
+      }
+
+      animationFrameId = requestAnimationFrame(() => {
+        const elements = document.querySelectorAll(".fade-element");
+        elements.forEach((el) => {
+          const rect = el.getBoundingClientRect();
+          const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+
+          // Only update if visibility state has changed
+          if (isVisible !== el.dataset.visible) {
+            el.style.transition = "opacity 0.5s ease-in-out";
+            el.style.opacity = isVisible ? 1 : 0;
+            el.dataset.visible = isVisible; // Store visibility state
+          }
+        });
       });
     };
 
+    // Add scroll event listener
     window.addEventListener("scroll", handleScroll);
-    // Initial check to ensure visibility when the page loads
-    handleScroll();
+    handleScroll(); // Initial check
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    // Cleanup
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+    };
   }, []);
 
   useEffect(() => {
@@ -256,7 +270,7 @@ const OffersBillings = () => {
       </motion.div>
 
       {/* Recent Transactions */}
-      <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+      {/* <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
         <div className="order-1 md:order-3 col-span-1 flex items-center justify-center text-center">
           <div className="text-left">
             <h2 className="text-[#FBFDFC] text-2xl font-bold mb-2 fade-element">
@@ -290,7 +304,6 @@ const OffersBillings = () => {
           </div>
         </div>
 
-        {/* Icons in two rows */}
         <div className="order-2 md:order-1 col-span-2 grid grid-cols-2 gap-6 place-items-center fade-element">
           <div className="flex flex-col items-center">
             <FaMobileAlt className="text-5xl text-white" />
@@ -309,7 +322,7 @@ const OffersBillings = () => {
             <p className="text-white mt-2">Debit Card</p>
           </div>
         </div>
-      </motion.div>
+      </motion.div> */}
 
       <Footer />
     </div>
