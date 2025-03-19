@@ -1,14 +1,13 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
-import mobileImage from "../assets/venueengagement/mobile-1.png"; // Replace with your image paths
-import Lottie from "lottie-react"; // Import Lottie
-import chatAnimation from "../assets/venueengagement/chat.json"; // Lottie JSON files
+import mobileImage from "../assets/venueengagement/mobile-1.png"; 
+import Lottie from "lottie-react"; 
+import chatAnimation from "../assets/venueengagement/chat.json"; 
 import attendanceAnimation from "../assets/venueengagement/attendance.json";
 import notificationAnimation from "../assets/venueengagement/notification.json";
-import Footer from "../components/Footer"; // Import your Footer component
+import Footer from "../components/Footer"; 
 
 function VenueEngagement() {
-  // Add scroll event listener for fade-in animation
   useEffect(() => {
     const handleScroll = () => {
       const elements = document.querySelectorAll(".fade-element");
@@ -65,7 +64,7 @@ function VenueEngagement() {
 
       {/* Section 1: Real-Time Customer Chat */}
       <motion.div
-        className="bg-[#0F1A09] flex flex-col md:flex-row items-center gap-6 mt-8 p-6 rounded-xl fade-element" // Curved edges
+        className="bg-[#0F1A09] flex flex-col md:flex-row items-center gap-6 mt-8 p-6 rounded-xl" // Curved edges
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
