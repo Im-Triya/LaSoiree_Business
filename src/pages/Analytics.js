@@ -153,7 +153,7 @@ const Analytics = () => {
     <div className="min-h-screen p-4 md:p-6 md:m-10">
       {/* Heading */}
       <motion.h1
-        className="text-2xl text-[#09D133] md:text-5xl font-bold text-center mb-8 mt-10 fade-element"
+        className="text-2xl text-[#FDF0B1] md:text-5xl font-bold text-center mb-8 mt-10 fade-element"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -244,7 +244,7 @@ const Analytics = () => {
         <div className="w-full md:w-1/3">
           <div className="relative flex flex-col items-center">
             <motion.div
-              animate={{ rotateY: [0, 360] }}
+              animate={{ rotateY: [0, 10] }}
               transition={{ duration: 3, repeat: Infinity }}
               className="w-40 h-40 flex items-center justify-center"
             >

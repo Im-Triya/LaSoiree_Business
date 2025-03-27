@@ -9,7 +9,6 @@ import Footer from "../components/Footer";
 export default function Home() {
   const text1 = "LaSoirée Partners Application..."; // shortened for brevity
 
-  // Simplified animation variants
   const imageVariants1 = {
     hidden: { y: -100, opacity: 0 },
     visible: { 

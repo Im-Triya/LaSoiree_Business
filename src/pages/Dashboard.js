@@ -86,7 +86,7 @@ function Dashboard() {
   return (
     <div className="min-h-screen text-[#FDF0B1] p-6 md:p-12 ">
       <motion.h1
-        className="text-3xl text-[#09D133] md:text-5xl font-bold text-center mb-12 mt-14 ml-3"
+        className="text-3xl text-[#FDF0B1] md:text-5xl font-bold text-center mb-12 mt-14 ml-3"
         style={{ opacity: fadeOpacity }}
         initial={{ opacity: 0 }}
         animate={headingControls}
@@ -119,32 +119,7 @@ function Dashboard() {
       >
         <div className="flex flex-col space-y-6">
           {dynamicStats.map((stat) => (
-            <motion.div
-              key={stat.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileHover={{ scale: 1.05, backgroundColor: "#017F1C" }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: stat.delay }}
-              viewport={{ once: true }}
-              className="flex items-center bg-[#0F1A09] p-6 rounded-2xl shadow-lg"
-            >
-              <div className="text-4xl text-[#FBFDFC] mr-4">{stat.icon}</div>
-              <div>
-                <h2 className="text-lg font-semibold">{stat.title}</h2>
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{
-                    duration: 1,
-                    repeat: Infinity,
-                    repeatType: "mirror",
-                  }}
-                  className="text-2xl font-bold text-[#FBFDFC]"
-                >
-                  {stat.value.toLocaleString()}
-                </motion.p>
-              </div>
-            </motion.div>
+            <StatCard key={stat.id} stat={stat} />
           ))}
         </div>
         <motion.div className="flex justify-center">
@@ -163,7 +138,7 @@ function Dashboard() {
       </motion.div>
 
       <motion.div className="mt-16 p-6 bg-[#0F1A09] rounded-2xl shadow-lg">
-        <h2 className="text-2xl font-semibold mb-6 text-center">Key Features</h2>
+        <h2 className="text-2xl font-semibold mb-6 text-center text-[#FBFDFC]">Key Features</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => (
             <FeatureCard key={index} feature={feature} delay={index * 0.3} />
@@ -175,6 +150,57 @@ function Dashboard() {
   );
 }
 
+const StatCard = ({ stat }) => {
+  const [currentValue, setCurrentValue] = useState(stat.value);
+  const [previousValue, setPreviousValue] = useState(stat.value);
+
+  useEffect(() => {
+    if (stat.value !== currentValue) {
+      setPreviousValue(currentValue);
+      setCurrentValue(stat.value);
+    }
+  }, [stat.value, currentValue]);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileHover={{ scale: 1.05, backgroundColor: "#017F1C" }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: stat.delay }}
+      viewport={{ once: true }}
+      className="flex items-center bg-[#0F1A09] p-6 rounded-2xl shadow-lg"
+    >
+      <div className="text-4xl text-[#FBFDFC] mr-4">{stat.icon}</div>
+      <div>
+        <h2 className="text-lg font-semibold">{stat.title}</h2>
+        <div className="text-2xl font-bold text-[#FBFDFC] h-8 overflow-hidden relative">
+          <motion.div
+            key={currentValue}
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -20, opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            className="absolute"
+          >
+            {currentValue.toLocaleString()}
+          </motion.div>
+          {previousValue !== currentValue && (
+            <motion.div
+              key={`prev-${previousValue}`}
+              initial={{ y: 0, opacity: 1 }}
+              animate={{ y: -20, opacity: 0 }}
+              transition={{ duration: 0.5 }}
+              className="absolute"
+            >
+              {previousValue.toLocaleString()}
+            </motion.div>
+          )}
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
 const FeatureCard = ({ feature, delay }) => {
   return (
     <motion.div
@@ -184,8 +210,8 @@ const FeatureCard = ({ feature, delay }) => {
       viewport={{ once: false, amount: 0.2 }}
       className="flex flex-col items-center text-center p-6 bg-[#1E2B14] rounded-2xl shadow-lg"
     >
-      <div className="text-4xl text-[#FBFDFC] mb-4">{feature.icon}</div>
-      <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
+      <div className="text-4xl  mb-4">{feature.icon}</div>
+      <h3 className="text-lg font-semibold mb-2 text-[#FBFDFC]">{feature.title}</h3>
       <p className="text-[#FDF0B1]">{feature.description}</p>
     </motion.div>
   );

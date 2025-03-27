@@ -1,5 +1,6 @@
 import React from "react";
-import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
+// import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -24,18 +25,18 @@ export default function Footer() {
 
         {/* Social Media - Right */}
         <div className="flex gap-4">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+          {/* <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
             <FaFacebook className="text-lg hover:text-[#FDF0B1] transition-transform transform hover:scale-110" />
+          </a> */}
+          <a href="https://www.instagram.com/abhi_neww?igsh=MWU4Nmg4NTJ5eDV4bw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">
+            <FaInstagram className="text-lg hover:text-[#FDF0B1] transition-transform transform hover:scale-110" /> Instagram
           </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-            <FaInstagram className="text-lg hover:text-[#FDF0B1] transition-transform transform hover:scale-110" />
-          </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+          {/* <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
             <FaTwitter className="text-lg hover:text-[#FDF0B1] transition-transform transform hover:scale-110" />
-          </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+          </a> */}
+          {/* <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
             <FaLinkedin className="text-lg hover:text-[#FDF0B1] transition-transform transform hover:scale-110" />
-          </a>
+          </a> */}
         </div>
       </div>
     </footer>

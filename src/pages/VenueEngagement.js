@@ -34,7 +34,7 @@ function VenueEngagement() {
     <div className="min-h-screen p-4 md:p-6 md:m-10">
       {/* Header */}
       <motion.h1
-        className="text-2xl text-[#09D133] md:text-5xl font-bold text-center mb-8 mt-10 fade-element"
+        className="text-2xl text-[#FDF0B1] md:text-5xl font-bold text-center mb-8 mt-10 fade-element"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}

@@ -77,7 +77,7 @@ const OffersBillings = () => {
     <div className="min-h-screen text-[#FDF0B1] p-4 md:p-12">
       {/* Animated Heading */}
       <motion.h1
-        className="text-2xl text-[#09D133] md:text-5xl font-bold text-center mb-8 mt-10 fade-element"
+        className="text-2xl text-[#FDF0B1] md:text-5xl font-bold text-center mb-8 mt-10 fade-element"
         initial={{ opacity: 0 }}
         animate={headingControls}
         transition={{ duration: 0.8 }}
@@ -101,20 +101,19 @@ const OffersBillings = () => {
           ))}
       </motion.h1>
 
-      {/* Subheading */}
-      <motion.p
+      {/* <motion.p
         className="text-base text-center md:text-2xl mb-15 fade-element"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.5 }}
       >
         Manage discounts, promotions, and billing in one place.
-      </motion.p>
+      </motion.p> */}
 
       {/* Active Offers & Promotions */}
       <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10 ">
         <div className="order-1 col-span-1 flex items-center justify-center text-center">
-          <div className="text-left">
+          <div className="text-left bg-[#0F1A09] p-6 rounded-xl">
             <h2 className="text-[#FBFDFC] text-2xl font-bold mb-2">
               Active Offers & Promotions
             </h2>
@@ -165,7 +164,7 @@ const OffersBillings = () => {
       {/* Personalized Offers */}
       <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10 fade-element">
         <div className="order-1 md:order-2 col-span-1 flex items-center justify-center text-center">
-          <div className="text-left">
+          <div className="text-left bg-[#0F1A09] p-6 rounded-xl">
             <h2 className="text-[#FBFDFC] text-2xl font-bold mb-2">
               Personalized Offers
             </h2>
@@ -223,7 +222,7 @@ const OffersBillings = () => {
       <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 fade-element">
         {/* Centering text */}
         <div className="order-1 col-span-1 flex items-center justify-center text-center">
-          <div className="text-left">
+          <div className="text-left bg-[#0F1A09] p-6 rounded-xl">
             <h2 className="text-[#FBFDFC] text-2xl font-bold mb-2">
               Table Billing Management
             </h2>
@@ -272,7 +271,7 @@ const OffersBillings = () => {
       {/* Recent Transactions */}
       {/* <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
         <div className="order-1 md:order-3 col-span-1 flex items-center justify-center text-center">
-          <div className="text-left">
+          <div className="text-left bg-[#0F1A09] p-6 rounded-xl">
             <h2 className="text-[#FBFDFC] text-2xl font-bold mb-2 fade-element">
               Recent Transactions
             </h2>
