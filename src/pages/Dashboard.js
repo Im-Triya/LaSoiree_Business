@@ -8,7 +8,8 @@ import {
   FaHandsHelping,
 } from "react-icons/fa";
 import Footer from "../components/Footer";
-import chartImage from "../assets/dashboard/dashboard.jpeg";
+// import chartImage from "../assets/dashboard/dashboard.jpeg";
+import chartImage from "../assets/dashboard/dashboard2.png";
 
 const stats = [
   {
@@ -114,7 +115,7 @@ function Dashboard() {
       <motion.div
         animate={contentControls}
         initial={{ opacity: 0, y: 20 }}
-        style={{ opacity: fadeOpacity }}
+        
         className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
       >
         <div className="flex flex-col space-y-6">

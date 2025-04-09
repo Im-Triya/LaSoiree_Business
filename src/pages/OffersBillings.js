@@ -4,14 +4,30 @@ import { motion, useAnimation } from "framer-motion";
 // import { SiVisa } from "react-icons/si";
 
 import Footer from "../components/Footer";
-import offer1 from "../assets/offersbillings/offer1.jpeg";
-import offer2 from "../assets/offersbillings/offer2.jpeg";
-import offer3 from "../assets/offersbillings/offer3.jpeg";
-import offer4 from "../assets/offersbillings/offer4.jpeg";
-import avatar1 from "../assets/offersbillings/avatar1.png";
-import avatar2 from "../assets/offersbillings/avatar2.png";
-import avatar3 from "../assets/offersbillings/avatar3.png";
-import avatar4 from "../assets/offersbillings/avatar4.png";
+// import offer1 from "../assets/offersbillings/offer1.jpeg";
+// import offer2 from "../assets/offersbillings/offer2.jpeg";
+// import offer3 from "../assets/offersbillings/offer3.jpeg";
+// import offer4 from "../assets/offersbillings/offer4.jpeg";
+
+import offer1 from "../assets/offersbillings/offers/image 1.png";
+import offer2 from "../assets/offersbillings/offers/image 2.png";
+import offer3 from "../assets/offersbillings/offers/image 3.png";
+import offer4 from "../assets/offersbillings/offers/image 4.png";
+import offer5 from "../assets/offersbillings/offers/image 5.jpeg";
+import offer6 from "../assets/offersbillings/offers/image 6.jpeg";
+
+// import avatar1 from "../assets/offersbillings/avatar1.png";
+// import avatar2 from "../assets/offersbillings/avatar2.png";
+// import avatar3 from "../assets/offersbillings/avatar3.png";
+// import avatar4 from "../assets/offersbillings/avatar4.png";
+import avatar1 from "../assets/offersbillings/avataars/avatar 1.png";
+import avatar2 from "../assets/offersbillings/avataars/avatar 2.png";
+import avatar3 from "../assets/offersbillings/avataars/avatar 3.png";
+import avatar4 from "../assets/offersbillings/avataars/avatar 4.png";
+import avatar5 from "../assets/offersbillings/avataars/avatar 5.png";
+import avatar6 from "../assets/offersbillings/avataars/avatar 6.png";
+import avatar7 from "../assets/offersbillings/avataars/avatar 7.png";
+
 import billingimage from "../assets/offersbillings/bill.png";
 
 const avatars = [
@@ -19,10 +35,9 @@ const avatars = [
   avatar2,
   avatar3,
   avatar4,
-  avatar1,
-  avatar2,
-  avatar3,
-  avatar4,
+  avatar5,
+  avatar6,
+  avatar7,
 ];
 
 const OffersBillings = () => {
@@ -118,7 +133,7 @@ const OffersBillings = () => {
               Active Offers & Promotions
             </h2>
             <motion.ul
-              className="text-lg space-y-2 list-disc list-inside"
+              className="text-lg space-y-2 list-disc list-outside pl-6"
               initial="hidden"
               animate="visible"
               variants={{
@@ -147,12 +162,12 @@ const OffersBillings = () => {
         </div>
 
         <div className="order-2 col-span-2 grid grid-cols-3 gap-1">
-          {[offer1, offer2, offer3, offer4, offer1, offer2].map((img, i) => (
+          {[offer1, offer2, offer3, offer4, offer5, offer6].map((img, i) => (
             <motion.img
               key={i}
               src={img}
               alt={`Offer ${i + 1}`}
-              className="rounded-lg shadow-lg w-40 h-40 md:h-48 object-cover fade-element"
+              className="rounded-lg shadow-lg w-40 h-40 md:h-48 object-cover "
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: i * 0.7 }}
@@ -162,14 +177,14 @@ const OffersBillings = () => {
       </motion.div>
 
       {/* Personalized Offers */}
-      <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10 fade-element">
+      <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10 ">
         <div className="order-1 md:order-2 col-span-1 flex items-center justify-center text-center">
           <div className="text-left bg-[#0F1A09] p-6 rounded-xl">
             <h2 className="text-[#FBFDFC] text-2xl font-bold mb-2">
               Personalized Offers
             </h2>
             <motion.ul
-              className="text-lg space-y-2 list-disc list-inside"
+              className="text-lg space-y-2 list-disc list-outside pl-6"
               initial="hidden"
               animate="visible"
               variants={{
@@ -197,7 +212,7 @@ const OffersBillings = () => {
           </div>
         </div>
 
-        <div className="order-2 md:order-1 col-span-2 overflow-hidden relative flex justify-center items-center fade-element">
+        <div className="order-2 md:order-1 col-span-2 overflow-hidden relative flex justify-center items-center ">
           <motion.div
             className="flex space-x-6"
             animate={{ x: [0, -200] }}
@@ -219,7 +234,7 @@ const OffersBillings = () => {
       </motion.div>
 
       {/* Table Billing Management */}
-      <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 fade-element">
+      <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 ">
         {/* Centering text */}
         <div className="order-1 col-span-1 flex items-center justify-center text-center">
           <div className="text-left bg-[#0F1A09] p-6 rounded-xl">
@@ -227,7 +242,7 @@ const OffersBillings = () => {
               Table Billing Management
             </h2>
             <motion.ul
-              className="text-lg space-y-2 list-disc list-inside"
+              className="text-lg space-y-2 list-disc list-outside pl-6"
               initial="hidden"
               animate="visible"
               variants={{
@@ -260,7 +275,7 @@ const OffersBillings = () => {
           <motion.img
             src={billingimage}
             alt="Billing"
-            className="rounded-lg shadow-lg h-85 object-cover fade-element"
+            className="rounded-lg shadow-lg h-85 object-cover "
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 1.5 }}
@@ -272,11 +287,11 @@ const OffersBillings = () => {
       {/* <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
         <div className="order-1 md:order-3 col-span-1 flex items-center justify-center text-center">
           <div className="text-left bg-[#0F1A09] p-6 rounded-xl">
-            <h2 className="text-[#FBFDFC] text-2xl font-bold mb-2 fade-element">
+            <h2 className="text-[#FBFDFC] text-2xl font-bold mb-2 ">
               Recent Transactions
             </h2>
             <motion.ul
-              className="text-lg space-y-2 list-disc list-inside fade-element"
+              className="text-lg space-y-2 list-disc list-inside "
               initial="hidden"
               animate="visible"
               variants={{
@@ -303,7 +318,7 @@ const OffersBillings = () => {
           </div>
         </div>
 
-        <div className="order-2 md:order-1 col-span-2 grid grid-cols-2 gap-6 place-items-center fade-element">
+        <div className="order-2 md:order-1 col-span-2 grid grid-cols-2 gap-6 place-items-center ">
           <div className="flex flex-col items-center">
             <FaMobileAlt className="text-5xl text-white" />
             <p className="text-white mt-2">UPI</p>

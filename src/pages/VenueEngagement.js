@@ -26,7 +26,7 @@ function VenueEngagement() {
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial check
+    handleScroll(); 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -95,7 +95,7 @@ function VenueEngagement() {
 
       {/* Section 2: Staff Attendance */}
       <motion.div
-        className="#017F1C flex flex-col md:flex-row items-center gap-6 mt-8 p-6 rounded-xl fade-element" // Curved edges
+        className="#017F1C flex flex-col md:flex-row items-center gap-6 mt-8 p-6 rounded-xl " // Curved edges
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
@@ -126,7 +126,7 @@ function VenueEngagement() {
 
       {/* Section 3: Venue Photo & Menu Management */}
       <motion.div
-        className="bg-[#0F1A09] flex flex-col md:flex-row items-center gap-6 mt-8 p-6 rounded-xl fade-element" // Curved edges
+        className="bg-[#0F1A09] flex flex-col md:flex-row items-center gap-6 mt-8 p-6 rounded-xl " // Curved edges
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
@@ -164,7 +164,7 @@ function VenueEngagement() {
 
       {/* Section 4: Table Service Requests */}
       <motion.div
-        className="#017F1C flex flex-col md:flex-row items-center gap-6 mt-8 p-6 rounded-xl fade-element" // Curved edges
+        className="#017F1C flex flex-col md:flex-row items-center gap-6 mt-8 p-6 rounded-xl " // Curved edges
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
