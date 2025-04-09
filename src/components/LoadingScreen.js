@@ -1,19 +1,22 @@
 import { useEffect } from "react";
-import loadingGif from "../assets/loading/loading.gif"; // Replace with your GIF path
+import loadingGif from "../assets/loading/loading.gif";
 
 export default function LoadingScreen({ onFinish }) {
   useEffect(() => {
-    // Simulate loading time (e.g., 3 seconds)
     const timer = setTimeout(() => {
       onFinish();
     }, 10000);
 
-    return () => clearTimeout(timer); // Cleanup on unmount
+    return () => clearTimeout(timer);
   }, [onFinish]);
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-[#123524]">
-      <img src={loadingGif} alt="Loading..." className="w-40 h-40" />
+    <div className="fixed inset-0 bg-[#123524]">
+      <img 
+        src={loadingGif} 
+        alt="Loading..." 
+        className="w-full h-full object-cover" 
+      />
     </div>
   );
 }
