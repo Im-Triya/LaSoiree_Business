@@ -36,7 +36,7 @@ function Demo() {
           <AnimatePresence mode="wait">
             <motion.div
               key={activeImage}
-              className="w-[200px] h-[400px] bg-gray-400 rounded-lg shadow-lg overflow-hidden"
+              className="w-[200px] h-[400px] rounded-lg shadow-lg overflow-hidden"
               initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -100 }}
@@ -76,7 +76,7 @@ function Demo() {
             backgroundPosition: "center",
           }}
         >
-          <div className="w-[250px] h-[500px] bg-gray-400 rounded-lg shadow-lg overflow-hidden">
+          <div className="w-[250px] h-[500px] rounded-lg shadow-lg overflow-hidden">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeImage}
