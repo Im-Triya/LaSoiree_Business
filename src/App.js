@@ -9,7 +9,7 @@ import OffersBillings from "./pages/OffersBillings";
 import Analytics from "./pages/Analytics";
 import VenueEngagement from "./pages/VenueEngagement";
 import Demo from "./pages/Demo";
-import LoadingScreen from "./components/LoadingScreen";
+// import LoadingScreen from "./components/LoadingScreen";
 import PageTransition from "./components/PageTransition";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -27,11 +27,12 @@ export default function App() {
 
   return (
     <Router>
-      {isLoading ? (
+      {/* {isLoading ? (
         <LoadingScreen />
       ) : (
         <AppContent />
-      )}
+      )} */}
+       <AppContent />
     </Router>
   );
 }
